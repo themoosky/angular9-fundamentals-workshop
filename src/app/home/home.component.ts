@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { bufferToggle } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  title = 'Course Outline'
+  ourColor = 'blue';
+  currentLesson = null;  
   courseLessons = [
     { title: 'Hello Angular' },
     { title: 'Component Fundamentals' },
@@ -22,5 +25,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  updateColor() {
+    this.ourColor = 'aqua'; 
+  }; 
 
-}
+  selectLesson(lesson) {
+    console.log('Lesson', lesson); 
+    this.currentLesson = lesson; 
+  }
+};
